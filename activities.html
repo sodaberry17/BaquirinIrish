@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid with Titles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0; /* Background color of the page */
+        }
+        .header {
+            background-color: #714949;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        .image-item {
+            text-align: center;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for design */
+        }
+        .image-item img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 5px; /* Rounding the image corners */
+        }
+        .image-title {
+            margin-top: 10px;
+        }
+        .image-title a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .image-title a:hover {
+            color: #007BFF; /* Color change on hover */
+        }
+        body{
+            background: linear-gradient(to right, #96878e 0%, #884b5f 100%);; 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            My activities
+        </div>
+        <div class="image-grid">
+            <div class="image-item">
+                <a href="link1.html"><img src="https://i.pinimg.com/564x/f1/94/7f/f1947fc029d465ca3226cb9d9c23c71d.jpg" alt="Image 1"></a>
+                <div class="image-title"><a href="link1.html">My Activity 1</a></div>
+            </div>
+            <div class="image-item">
+                <a href="link2.html"><img src="https://i.pinimg.com/564x/6c/89/ee/6c89ee6aa412e9fc10d78d9e3e706471.jpg" alt="Image 2"></a>
+                <div class="image-title"><a href="link2.html">My Activity 2</a></div>
+            </div>
+            <div class="image-item">
+                <a href="link3.html"><img src="https://i.pinimg.com/564x/42/ae/c7/42aec7d18cd492833d3c28574e1ec5b8.jpg" alt="Image 3"></a>
+                <div class="image-title"><a href="link3.html">My Activity 3</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
