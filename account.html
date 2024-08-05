@@ -1,0 +1,101 @@
+<!-- account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #96878e 0%, #884b5f 100%);
+            font-family: 'Arial', sans-serif; /* Clean and modern font */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Dark text color for readability */
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background for the main content */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50; /* Green color for the header */
+        }
+        .user-info {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 1.1em;
+        }
+        h3 {
+            border-bottom: 2px solid #4CAF50; /* Green border for section headers */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            color: #4CAF50; /* Matching color for section headers */
+        }
+        .order-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .order-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .price-tag {
+            color: #4CAF50; /* Green color for the price tag */
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function loadUserInfo() {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+            document.getElementById('user-info').innerText = `Name: ${userInfo.name || 'N/A'}, Contact: ${userInfo.contact || 'N/A'}, Barangay: ${userInfo.barangay || 'N/A'}, Address: ${userInfo.address || 'N/A'}`;
+            
+            loadOrders('purchases', 'purchases-container');
+            loadOrders('toShip', 'to-ship-container');
+            loadOrders('toReceive', 'to-receive-container');
+        }
+
+        function loadOrders(storageKey, containerId) {
+            const orders = JSON.parse(localStorage.getItem(storageKey)) || [];
+            let container = document.getElementById(containerId);
+
+            orders.forEach(item => {
+                container.innerHTML += `
+                    <div class="order-item">
+                        <p class="order-item-title">${item.product}</p>
+                        <p class="price-tag">P${item.price}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.onload = loadUserInfo;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Account</h2>
+        <div class="user-info" id="user-info">Info: [User Info]</div>
+        
+        <h3>Purchases</h3>
+        <div id="purchases-container"></div>
+        
+        <h3>To Ship</h3>
+        <div id="to-ship-container"></div>
+        
+        <h3>To Receive</h3>
+        <div id="to-receive-container"></div>
+    </div>
+</body>
+</html>
